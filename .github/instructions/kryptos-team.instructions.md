@@ -1,5 +1,5 @@
 ---
-applyTo: "**/pt-kryptos*/**"
+applyTo: "**"
 ---
 
 # Kryptos Team Instructions
@@ -10,6 +10,6 @@ Kryptos owns secrets infrastructure, OpenBao configuration, authentication metho
 
 ## Deployment
 
-Kryptos deploys zonal OpenBao workloads after the corresponding Pneuma runtime is available. Sandbox runs on pull requests, non-production runs after merge to `main`, and production runs only after non-production succeeds.
+Kryptos deploys zonal OpenBao workloads after the corresponding Pneuma runtime is available. Sandbox runs on pull requests and applies only to sandbox environments using sandbox credentials. Non-production runs after merge to `main`, and production runs after non-production succeeds for automatic promotion; production can also run by manual dispatch without a successful non-production run. Pull-request runs must not have access to production or non-production credentials.
 
 Consumers must use approved OpenBao authentication and policy paths. Do not store static credentials in repositories, OpenTofu variables, or CI environments.
